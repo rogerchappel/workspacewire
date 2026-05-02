@@ -1,4 +1,3 @@
 export function renderJson(plan) {
-  return `${JSON.stringify(plan, null, 2)}
-`;
+  return `${JSON.stringify(plan, null, 2)}\n`;
 }
