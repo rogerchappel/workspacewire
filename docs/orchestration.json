@@ -1,0 +1,10 @@
+{
+  "name": "workspacewire",
+  "version": "0.1.0",
+  "mode": "fixture-backed-dry-run",
+  "liveAdaptersEnabled": false,
+  "services": ["gmail", "calendar", "drive", "contacts"],
+  "outputs": ["text", "json"],
+  "gates": ["scope-explanation", "secret-scan", "redaction", "human-review-before-live-adapter"],
+  "forbiddenInV1": ["liveOAuth", "sendEmail", "mutateCalendar", "mutateDrive", "storeCredentials"]
+}
