@@ -9,7 +9,7 @@ function walk(dir) {
     return statSync(path).isDirectory() ? walk(path) : [path];
   });
 }
-const files = walk('src').filter((file) => file.endsWith('.js'));
+const files = [...walk('src'), ...walk('scripts')].filter((file) => file.endsWith('.js'));
 for (const file of files) {
   const result = spawnSync(process.execPath, ['--check', file], { encoding: 'utf8' });
   if (result.status !== 0) { process.stderr.write(result.stderr); process.exit(result.status); }
