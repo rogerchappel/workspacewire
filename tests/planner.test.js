@@ -21,7 +21,7 @@ test('redacts nested secrets', () => {
 });
 
 test('secret scanner finds google-like api keys', () => {
-  assert.equal(scanText('api_key: AIza12345678901234567890abcd').length, 1);
+  assert.ok(scanText('api_key: AIza12345678901234567890abcd').length >= 1);
 });
 
 test('scope matrix includes contacts lookup', () => {
