@@ -46,16 +46,12 @@ async function main() {
   }
   if (command === 'scopes') {
     const matrix = scopeMatrix();
-    if (flags.format === 'json') process.stdout.write(`${JSON.stringify(matrix, null, 2)}
-`);
-    else process.stdout.write(matrix.map((row) => `${row.service}/${row.operation}: ${row.scopes.map((s) => s.name).join(', ')}${row.mutates ? ' [disabled/mutating]' : ''}`).join('
-') + '
-');
+    if (flags.format === 'json') process.stdout.write(`${JSON.stringify(matrix, null, 2)}\n`);
+    else process.stdout.write(matrix.map((row) => `${row.service}/${row.operation}: ${row.scopes.map((scope) => scope.name).join(', ')}${row.mutates ? ' [disabled/mutating]' : ''}`).join('\n') + '\n');
     return;
   }
   if (command === 'explain-scope') {
-    process.stdout.write(`${JSON.stringify(explainScopes(positional), null, 2)}
-`);
+    process.stdout.write(`${JSON.stringify(explainScopes(positional), null, 2)}\n`);
     return;
   }
   if (command === 'scan') {
