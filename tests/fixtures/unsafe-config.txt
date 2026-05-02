@@ -1,0 +1,2 @@
+client_secret=supersecretvalue
+api_key=AIza12345678901234567890abcd
