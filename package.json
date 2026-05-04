@@ -11,7 +11,9 @@
     "test": "node --test",
     "check": "node scripts/check.js",
     "build": "node scripts/build.js",
-    "smoke": "bash scripts/smoke.sh"
+    "smoke": "bash scripts/smoke.sh",
+    "release:check": "node scripts/releasebox.mjs check .",
+    "release:notes": "node scripts/releasebox.mjs notes"
   },
   "keywords": ["google-workspace", "planner", "dry-run", "oauth", "agents", "cli"],
   "author": "Roger Chappel",
