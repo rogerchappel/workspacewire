@@ -1,12 +1,14 @@
 # Release candidate readiness
 
-Generated: 2026-05-05T21:28:22Z
-Branch: `release-candidate/readiness`
+Generated: 2026-05-05T21:30:55Z
+Branch: `rc/release-readiness`
 Base: `main`
 
 ## Verification
 
 Status: PASS
+
+Note: this follow-up PR keeps an open release-readiness review after the earlier `release-candidate/readiness` PR was merged.
 
 Checks run:
 - `npm ci`
@@ -22,11 +24,11 @@ Checks run:
     ```
     ```text
     
-    up to date, audited 1 package in 111ms
+    up to date, audited 1 package in 252ms
     
     found 0 vulnerabilities
     ```
-    RESULT: 0 (0s)
+    RESULT: 0
     
     ## npm run release:check
     ```
@@ -48,7 +50,7 @@ Checks run:
     ✅ smoke script: bash scripts/smoke.sh
     ✅ bin entry: {"workspacewire":"./src/cli.js"}
     ```
-    RESULT: 0 (3s)
+    RESULT: 0
     
     ## bash scripts/validate.sh
     ```
@@ -64,13 +66,13 @@ Checks run:
     > workspacewire@0.1.0 test
     > node --test
     
-    ✔ cli emits json dry-run plans (83.971ms)
-    ✔ cli scan exits nonzero on secrets (82.857292ms)
-    ✔ plans a read-only gmail search from fixtures (3.656084ms)
-    ✔ marks mutating operations as blocked (1.182875ms)
-    ✔ redacts nested secrets (1.760209ms)
-    ✔ secret scanner finds google-like api keys (0.433042ms)
-    ✔ scope matrix includes contacts lookup (0.349959ms)
+    ✔ cli emits json dry-run plans (58.463ms)
+    ✔ cli scan exits nonzero on secrets (53.834667ms)
+    ✔ plans a read-only gmail search from fixtures (2.781041ms)
+    ✔ marks mutating operations as blocked (0.58375ms)
+    ✔ redacts nested secrets (0.647833ms)
+    ✔ secret scanner finds google-like api keys (0.248916ms)
+    ✔ scope matrix includes contacts lookup (0.101916ms)
     ℹ tests 7
     ℹ suites 0
     ℹ pass 7
@@ -78,7 +80,7 @@ Checks run:
     ℹ cancelled 0
     ℹ skipped 0
     ℹ todo 0
-    ℹ duration_ms 275.92925
+    ℹ duration_ms 187.172583
     
     > workspacewire@0.1.0 build
     > node scripts/build.js
@@ -90,7 +92,7 @@ Checks run:
     
     smoke ok
     ```
-    RESULT: 0 (3s)
+    RESULT: 0
     
     ## ReleaseBox check
     ```
@@ -108,5 +110,5 @@ Checks run:
     ✅ smoke script: bash scripts/smoke.sh
     ✅ bin entry: {"workspacewire":"./src/cli.js"}
     ```
-    RESULT: 0 (0s)
+    RESULT: 0
     
