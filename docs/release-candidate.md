@@ -1,20 +1,33 @@
 # Release candidate readiness
 
-Generated: 2026-05-05T21:25:41Z
+Generated: 2026-05-05T21:28:22Z
 Branch: `release-candidate/readiness`
-Base: `origin/main`
+Base: `main`
 
 ## Verification
 
 Status: PASS
 
 Checks run:
+- `npm ci`
 - `npm run release:check`
 - `bash scripts/validate.sh`
 - `node releasebox check .`
 
 ## Check output summary
 
+    ## npm ci
+    ```
+    npm ci
+    ```
+    ```text
+    
+    up to date, audited 1 package in 111ms
+    
+    found 0 vulnerabilities
+    ```
+    RESULT: 0 (0s)
+    
     ## npm run release:check
     ```
     npm run release:check
@@ -51,13 +64,13 @@ Checks run:
     > workspacewire@0.1.0 test
     > node --test
     
-    ✔ cli emits json dry-run plans (63.172167ms)
-    ✔ cli scan exits nonzero on secrets (60.779708ms)
-    ✔ plans a read-only gmail search from fixtures (3.208458ms)
-    ✔ marks mutating operations as blocked (0.556167ms)
-    ✔ redacts nested secrets (0.664ms)
-    ✔ secret scanner finds google-like api keys (0.29725ms)
-    ✔ scope matrix includes contacts lookup (0.10375ms)
+    ✔ cli emits json dry-run plans (83.971ms)
+    ✔ cli scan exits nonzero on secrets (82.857292ms)
+    ✔ plans a read-only gmail search from fixtures (3.656084ms)
+    ✔ marks mutating operations as blocked (1.182875ms)
+    ✔ redacts nested secrets (1.760209ms)
+    ✔ secret scanner finds google-like api keys (0.433042ms)
+    ✔ scope matrix includes contacts lookup (0.349959ms)
     ℹ tests 7
     ℹ suites 0
     ℹ pass 7
@@ -65,7 +78,7 @@ Checks run:
     ℹ cancelled 0
     ℹ skipped 0
     ℹ todo 0
-    ℹ duration_ms 211.759458
+    ℹ duration_ms 275.92925
     
     > workspacewire@0.1.0 build
     > node scripts/build.js
@@ -77,7 +90,7 @@ Checks run:
     
     smoke ok
     ```
-    RESULT: 0 (1s)
+    RESULT: 0 (3s)
     
     ## ReleaseBox check
     ```
@@ -95,5 +108,5 @@ Checks run:
     ✅ smoke script: bash scripts/smoke.sh
     ✅ bin entry: {"workspacewire":"./src/cli.js"}
     ```
-    RESULT: 0 (1s)
+    RESULT: 0 (0s)
     
