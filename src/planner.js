@@ -8,7 +8,8 @@ export async function planOperation({ service, operation, options = {}, fixtureD
   const missing = (opSpec.required ?? []).filter((key) => !options[key]);
   if (missing.length) throw new Error(`Missing required option(s): ${missing.join(', ')}`);
   const fixture = await loadFixture(service, fixtureDir);
-  const preview = filterFixture(service, operation, fixture, options).slice(0, Number(options.limit ?? 5));
+  const limit = normalizePreviewLimit(options.limit);
+  const preview = filterFixture(service, operation, fixture, options).slice(0, limit);
   const path = opSpec.path.replace('{fileId}', encodeURIComponent(options.fileId ?? 'FILE_ID'));
   const blocked = Boolean(opSpec.mutates || opSpec.disabledReason);
   return redactObject({
@@ -43,3 +44,10 @@ export async function planOperation({ service, operation, options = {}, fixtureD
     ]
   });
 }
+
+function normalizePreviewLimit(value) {
+  const limit = Number(value ?? 5);
+  if (!Number.isFinite(limit) || limit < 1) return 5;
+  return Math.min(Math.floor(limit), 50);
+}
+
