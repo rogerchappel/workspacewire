@@ -10,6 +10,13 @@ test('plans a read-only gmail search from fixtures', async () => {
   assert.equal(plan.fixture.items[0].id, 'msg_001');
 });
 
+
+test('normalizes unsafe preview limits instead of returning empty plans', async () => {
+  const plan = await planOperation({ service: 'drive', operation: 'find', options: { query: 'roadmap', limit: 'not-a-number' } });
+  assert.equal(plan.fixture.matched, 1);
+  assert.equal(plan.fixture.items[0].id, 'drv_001');
+});
+
 test('marks mutating operations as blocked', async () => {
   const plan = await planOperation({ service: 'calendar', operation: 'create', options: { summary: 'hold' } });
   assert.equal(plan.safety.blocked, true);
