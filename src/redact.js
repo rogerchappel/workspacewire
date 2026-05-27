@@ -1,5 +1,5 @@
 const DEFAULT_KEYS = ['access_token', 'refresh_token', 'client_secret', 'private_key', 'api_key', 'authorization', 'cookie', 'password'];
-const TOKENISH = /(ya29\.[A-Za-z0-9._-]+|gh[pousr]_[A-Za-z0-9_]{20,}|xox[baprs]-[A-Za-z0-9-]+|AIza[0-9A-Za-z_-]{20,})/g;
+const TOKENISH = /\b(ya29\.[A-Za-z0-9._-]+|gh[pousr]_[A-Za-z0-9_]{20,}|xox[baprs]-[A-Za-z0-9-]+|AIza[0-9A-Za-z_-]{20,})\b/g;
 
 export function redactValue(value) {
   if (typeof value !== 'string') return value;
